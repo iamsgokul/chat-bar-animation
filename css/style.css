@@ -1,0 +1,168 @@
+       body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            background-color:#f2eeff;
+        }
+
+        .container {
+            width: 100%;
+            margin: 15% 0;
+            position: relative;
+            height: 100px;
+        }
+
+        .chatbox {
+            width: 320px;
+            height: 100px;
+            border-radius: 100px;
+            display: block;
+            background-color: #6f44ff;
+            padding: 25px;
+            box-sizing: border-box;
+            transform-origin: 0 0 0;
+            overflow: hidden;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+
+        }
+
+        .chatbox.open {
+            animation: openani 1s cubic-bezier(.57, .07, .47, .84);
+        }
+
+        @keyframes openani {
+            0% {
+                transform: rotate(-8deg);
+                transform-origin: 60px 50px 0;
+            }
+
+            50% {
+                transform-origin: 60px 50px 0;
+                transform: rotate(1deg);
+            }
+
+            70% {
+
+                transform: rotate(-1deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+
+        .chatbox.close {
+            animation: closeani 1s cubic-bezier(.17,.67,.83,.67);
+        }
+
+        @keyframes closeani {
+            0% {
+                transform: rotate(8deg);
+                transform-origin: 60px 50px 0;
+            }
+
+            50% {
+                transform-origin: 60px 50px 0;
+                transform: rotate(-1deg);
+            }
+
+            70% {
+
+                transform: rotate(1deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .chatbox.close .chatplus a {
+            transform: rotate(-135deg);
+            transition: .5s all;
+        }
+
+        .chatplus a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: #8e6fff;
+            display: block;
+            float: left;
+        }
+
+        .chatplus a svg {
+            width: 20px;
+            padding: 15px;
+            display: block;
+        }
+
+        .chatctrl {
+            width: 220px;
+            height: 50px;
+            float: left;
+            display: block;
+            position: relative;
+        }
+
+        .chatfld {
+            width: 220px;
+            height: 50px;
+            transform-origin: 0 0 0;
+            transform: rotate(0deg);
+            position: absolute;
+            transition: .5s transform;
+        }
+
+        .chatfld input {
+            border: 0;
+            background-color: #8e6fff;
+            width: 200px;
+            height: 50px;
+            margin: 0 0 0 20px;
+            outline: none;
+            border-radius: 50px;
+            font-size: 20px;
+            padding: 0 15px;
+            box-sizing: border-box;
+            font-weight: 300;
+            color: #ffffff;
+        }
+
+        ::placeholder {
+            color: #ffffff;
+            opacity: .2;
+        }
+
+        .chatoption {
+            width: 220px;
+            height: 50px;
+            padding: 2.5px 0 2.5px 20px;
+            box-sizing: border-box;
+            transform-origin: 0 50px 0;
+            transform: rotate(80deg);
+            transition: .5s transform;
+            position: absolute;
+        }
+
+        .chatoption a {
+            float: left;
+            width: 45px;
+            height: 45px;
+            border-radius: 50px;
+            margin: 0 10px 0 10px;
+            background-color: #8e6fff;
+            padding: 10px 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .chatctrl.active .chatoption {
+            transform: rotate(0deg);
+        }
+
+        .chatctrl.active .chatfld {
+            transform: rotate(-100deg);
+        }
